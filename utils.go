@@ -134,6 +134,10 @@ func (d *jsonDecoder) DecodeFile(filename string) (map[string]interface{}, error
 	return raw, nil
 }
 
+func (d *jsonDecoder) FileFormat() ConfigFormat {
+	return JsonFormat
+}
+
 func normalize(curr interface{}) interface{} {
 	switch curr := curr.(type) {
 	case []interface{}:

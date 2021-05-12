@@ -1,6 +1,7 @@
 package aconfigyaml
 
 import (
+	"github.com/avast/aconfig"
 	"os"
 
 	"gopkg.in/yaml.v2"
@@ -25,4 +26,8 @@ func (d *Decoder) DecodeFile(filename string) (map[string]interface{}, error) {
 		return nil, err
 	}
 	return raw, nil
+}
+
+func (d *Decoder) FileFormat() aconfig.ConfigFormat {
+	return aconfig.YamlFormat
 }

@@ -1,6 +1,7 @@
 package aconfigdotenv
 
 import (
+	"github.com/avast/aconfig"
 	"github.com/joho/godotenv"
 )
 
@@ -22,4 +23,8 @@ func (d *Decoder) DecodeFile(filename string) (map[string]interface{}, error) {
 		res[key] = value
 	}
 	return res, nil
+}
+
+func (d *Decoder) FileFormat() aconfig.ConfigFormat {
+	return aconfig.EnvFormat
 }

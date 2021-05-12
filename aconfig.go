@@ -8,14 +8,24 @@ import (
 	"strings"
 )
 
+type ConfigFormat string
+
+const (
+	JsonFormat ConfigFormat = "json"
+	YamlFormat ConfigFormat = "yaml"
+	TomlFormat ConfigFormat = "toml"
+	HclFormat ConfigFormat = "hcl"
+	EnvFormat ConfigFormat = "env"
+)
+
 const (
 	defaultValueTag = "default"
 	usageTag        = "usage"
-	jsonNameTag     = "json"
-	yamlNameTag     = "yaml"
-	tomlNameTag     = "toml"
-	hclNameTag      = "hcl"
-	envNameTag      = "env"
+	jsonNameTag     = string(JsonFormat)
+	yamlNameTag     = string(YamlFormat)
+	tomlNameTag     = string(TomlFormat)
+	hclNameTag      = string(HclFormat)
+	envNameTag      = string(EnvFormat)
 	flagNameTag     = "flag"
 )
 
@@ -94,6 +104,11 @@ type Config struct {
 // FileDecoder is used to read config from files. See aconfig submodules.
 type FileDecoder interface {
 	DecodeFile(filename string) (map[string]interface{}, error)
+}
+
+type FileDecoderWithFormat interface {
+	FileDecoder
+	FileFormat() ConfigFormat
 }
 
 // Field of the user configuration structure.
@@ -287,6 +302,9 @@ func (l *Loader) loadFromFile() error {
 		}
 
 		tag := ext[1:]
+		if decFormat, ok := decoder.(FileDecoderWithFormat); ok {
+			tag = string(decFormat.FileFormat())
+		}
 
 		for _, field := range l.fields {
 			name := l.fullTag(field, tag)

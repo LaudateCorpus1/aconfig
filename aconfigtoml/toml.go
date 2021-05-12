@@ -1,6 +1,7 @@
 package aconfigtoml
 
 import (
+	"github.com/avast/aconfig"
 	"os"
 
 	"github.com/BurntSushi/toml"
@@ -25,4 +26,8 @@ func (d *Decoder) DecodeFile(filename string) (map[string]interface{}, error) {
 		return nil, err
 	}
 	return raw, nil
+}
+
+func (d *Decoder) FileFormat() aconfig.ConfigFormat {
+	return aconfig.TomlFormat
 }

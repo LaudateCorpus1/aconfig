@@ -1,6 +1,7 @@
 package aconfighcl
 
 import (
+	"github.com/avast/aconfig"
 	"io/ioutil"
 
 	"github.com/hashicorp/hcl"
@@ -29,4 +30,8 @@ func (d *Decoder) DecodeFile(filename string) (map[string]interface{}, error) {
 		return nil, err
 	}
 	return raw, nil
+}
+
+func (d *Decoder) FileFormat() aconfig.ConfigFormat {
+	return aconfig.HclFormat
 }
