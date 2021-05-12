@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/cristalhq/aconfig"
-	"github.com/cristalhq/aconfig/aconfigyaml"
+	"github.com/avast/aconfig"
+	"github.com/avast/aconfig/aconfigyaml"
 )
 
 func TestYAML(t *testing.T) {
@@ -148,7 +148,7 @@ y:
 
 A:
     x: "y"
-    B: 
+    B:
         C:
             m: "n"
             b: "boo"

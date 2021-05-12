@@ -5,8 +5,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/cristalhq/aconfig"
-	"github.com/cristalhq/aconfig/aconfigdotenv"
+	"github.com/avast/aconfig"
+	"github.com/avast/aconfig/aconfigdotenv"
 )
 
 func TestDotEnv(t *testing.T) {
