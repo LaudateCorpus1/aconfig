@@ -1,4 +1,4 @@
 github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
 github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
-github.com/avast/aconfig v0.11.1 h1:TWIi7BXWzQZJUkI2GseL5G+QqElhZLIJJFOSRGv8d/s=
-github.com/avast/aconfig v0.11.1/go.mod h1:0ZBp7dUf0F2Jr7YbLjw8OVlAD0eeV2bU3NwmVgeUReo=
+github.com/avast/aconfig v0.14.1 h1:VvKNzMVqrHVWdHn05D/0Hp5F8audTTXdDkPPmjNjUig=
+github.com/avast/aconfig v0.14.1/go.mod h1:w3VQsQbZzu/wMKrWgTJ/fQoq8zqAXyMSFb2/rkPoC08=
